@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #fbfaf8;
+  --fg: #23262b;
+  --muted: #7a7f87;
+  --line: #e9e6e1;
+  --hour: #f1eee9;
+  --past: #f2f1ee;
+  --surface: #ffffff;
+  --accent: #3d6fb6;
+  --now: #e0574f;
+  --block-fg: #23262b;
+}
+
+[data-theme="dark"] {
+  --bg: #17191c;
+  --fg: #e6e7e9;
+  --muted: #8d939b;
+  --line: #2c3035;
+  --hour: #212428;
+  --past: #1d1f22;
+  --surface: #1f2226;
+  --accent: #7ea6e0;
+  --now: #f07a72;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-hour: var(--hour);
+  --color-past: var(--past);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-now: var(--now);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 8px 10px;
+  min-height: 40px;
+}
+.field:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+.btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 6px 12px;
+  min-height: 36px;
+  white-space: nowrap;
+}
+.btn:disabled {
+  opacity: 0.45;
+}
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+[data-theme="dark"] .btn-primary {
+  color: #10141a;
+}
+.btn-danger {
+  color: var(--now);
+}
