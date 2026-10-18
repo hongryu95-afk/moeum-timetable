@@ -48,8 +48,17 @@ npm test
 
 ## 배포 (Vercel)
 
-1. GitHub 저장소에 올리고 Vercel에서 가져오기(Framework: Next.js).
-2. 환경변수 `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` 등록.
-3. 배포된 주소를 Supabase Redirect URLs에 추가.
+- 주소: https://moeum-timetable.vercel.app · GitHub: https://github.com/hongryu95-afk/moeum-timetable · Vercel 프로젝트 `moeum-timetable`
+- 환경변수 `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`는 Vercel에 등록돼 있다.
+- Supabase Redirect URLs: `https://moeum-timetable.vercel.app`(+`/**`), `http://localhost:3017`(+`/**`).
+
+원본은 `D:\myClaude\timetable`(myClaude 저장소 안의 폴더). 고친 뒤 올리는 순서:
+
+```bash
+cd D:/myClaude && git subtree push -P timetable https://github.com/hongryu95-afk/moeum-timetable.git main
+cd D:/myClaude/timetable && vercel --prod
+```
+
+(Vercel GitHub 앱에 이 저장소 권한을 주면 첫 줄만으로 자동 배포된다.)
 
 서버 예약 작업(Cron)은 쓰지 않는다 — 지난 계획은 조회에서 빠지고 앱을 열 때 정리되므로 Vercel 무료 플랜으로 충분하다.
